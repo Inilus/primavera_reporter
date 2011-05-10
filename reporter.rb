@@ -9,7 +9,7 @@
 # Docs for RubyZip: 		http://rubyzip.sourceforge.net/classes/Zip/ZipFile.html
 
 require 'yaml'
-require 'progressbar'
+#require 'progressbar'
 require 'tiny_tds'
 require 'haml'
 require 'zip/zip'
@@ -53,7 +53,7 @@ class Reporter
 	def work_with_department
 		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route" }  ) ).each( :symbolize_keys => true )
 		## ProgressBar
-	  pbar = ProgressBar.new( "Create report", departments.size )	  
+#	  pbar = ProgressBar.new( "Create report", departments.size )	  
 	  dir = nil
 		departments.each do |department|			
 			if department[:PARENT_actv_code_id].nil?				
@@ -61,10 +61,10 @@ class Reporter
 				dir << create_report( department[:short_name] )[1]
 			end
 			## ProgressBar
-			pbar.inc
+#			pbar.inc
 		end
 		## ProgressBar
-		pbar.finish
+#		pbar.finish
 		return dir
 	end
 	
