@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title Title	
+  %body   
+    %h1 Generating report completed!
+    %a{ :href => url( "/" ) } Go to home
+    %br
+    %h2 You can see:
+    - if paths.size > 1
+      - paths[1..-1].each do |path|
+        - unless path.nil?
+          %a{ :href => url( "/#{ paths[0] }/#{ path }.html" ) }= "#{ path }.html"
+          %br
+      Download all reports: 
+      %a{ :href => url( "/#{ paths[0] }/#{ paths[1][0, 21] }.zip" ) }= "#{ paths[1][0, 21] }.zip"

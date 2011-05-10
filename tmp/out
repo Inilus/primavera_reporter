@@ -1,0 +1,229 @@
+[2011-04-22 08:08:23] INFO  WEBrick 1.3.1
+[2011-04-22 08:08:23] INFO  ruby 1.9.2 (2011-02-18) [i686-linux]
+[2011-04-22 08:08:23] INFO  WEBrick::HTTPServer#start: pid=1734 port=8001
+10.10.120.202 - - [22/Apr/2011 08:09:21] "GET /favicon.ico HTTP/1.1" 404 445 0.0657
+USSP-G31M-ES2C - - [22/Apr/2011:08:09:21 MSD] "GET /favicon.ico HTTP/1.1" 404 0
+- -> /favicon.ico
+[2011-04-22 08:09:27] INFO  going to shutdown ...
+[2011-04-22 08:09:27] INFO  WEBrick::HTTPServer#start done.
+== Sinatra/1.2.3 has taken the stage on 8001 for development with backup from WEBrick
+
+== Sinatra has ended his set (crowd applauds)
+[2011-04-22 08:10:42] INFO  WEBrick 1.3.1
+[2011-04-22 08:10:42] INFO  ruby 1.9.2 (2011-02-18) [i686-linux]
+[2011-04-22 08:10:42] INFO  WEBrick::HTTPServer#start: pid=2202 port=8001
+10.10.13.214 - - [22/Apr/2011 09:20:46] "GET / HTTP/1.1" 200 2386 0.0577
+zio-ws429.emaa.local - - [22/Apr/2011:09:20:46 MSD] "GET / HTTP/1.1" 200 2386
+- -> /
+                                                                               Create report:   0% |                                          | ETA:  --:--:--Create report:   2% |                                          | ETA:  00:00:00Create report:   5% |oo                                        | ETA:  00:00:03Create report:   8% |ooo                                       | ETA:  00:00:04Create report:  11% |oooo                                      | ETA:  00:00:03Create report:  14% |ooooo                                     | ETA:  00:00:03Create report:  17% |ooooooo                                   | ETA:  00:00:02Create report:  20% |oooooooo                                  | ETA:  00:00:02Create report:  23% |ooooooooo                                 | ETA:  00:00:01Create report:  26% |oooooooooo                                | ETA:  00:00:02Create report:  29% |oooooooooooo                              | ETA:  00:00:02Create report:  32% |ooooooooooooo                             | ETA:  00:00:02Create report:  35% |oooooooooooooo                            | ETA:  00:00:02Create report:  38% |ooooooooooooooo                           | ETA:  00:00:02Create report:  41% |ooooooooooooooooo                         | ETA:  00:00:02Create report:  44% |oooooooooooooooooo                        | ETA:  00:00:02Create report:  47% |ooooooooooooooooooo                       | ETA:  00:00:02Create report:  50% |ooooooooooooooooooooo                     | ETA:  00:00:01Create report:  52% |ooooooooooooooooooooo                     | ETA:  00:00:01Create report:  55% |ooooooooooooooooooooooo                   | ETA:  00:00:01Create report:  58% |oooooooooooooooooooooooo                  | ETA:  00:00:01Create report:  61% |ooooooooooooooooooooooooo                 | ETA:  00:00:01Create report:  64% |oooooooooooooooooooooooooo                | ETA:  00:00:01Create report:  67% |oooooooooooooooooooooooooooo              | ETA:  00:00:00Create report:  70% |ooooooooooooooooooooooooooooo             | ETA:  00:00:00Create report:  73% |oooooooooooooooooooooooooooooo            | ETA:  00:00:00Create report:  76% |ooooooooooooooooooooooooooooooo           | ETA:  00:00:00Create report:  79% |ooooooooooooooooooooooooooooooooo         | ETA:  00:00:00Create report:  82% |oooooooooooooooooooooooooooooooooo        | ETA:  00:00:00Create report:  85% |ooooooooooooooooooooooooooooooooooo       | ETA:  00:00:00Create report:  88% |oooooooooooooooooooooooooooooooooooo      | ETA:  00:00:00Create report:  91% |oooooooooooooooooooooooooooooooooooooo    | ETA:  00:00:00Create report:  94% |ooooooooooooooooooooooooooooooooooooooo   | ETA:  00:00:00Create report:  97% |oooooooooooooooooooooooooooooooooooooooo  | ETA:  00:00:00Create report: 100% |oooooooooooooooooooooooooooooooooooooooooo| ETA:  00:00:00Create report: 100% |oooooooooooooooooooooooooooooooooooooooooo| Time: 00:00:03
+NoMethodError - undefined method `[]' for nil:NilClass:
+ /home/inilus/gitrepos/reporter/views/end.haml:14:in `evaluate_source'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:251:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:251:in `evaluate_source'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:186:in `cached_evaluate'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:169:in `evaluate'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:489:in `evaluate'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:118:in `render'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:567:in `render'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:467:in `haml'
+ runner_html.rb:30:in `block in <main>'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `block in compile!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `route_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:722:in `block (2 levels) in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:772:in `block in process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:721:in `block in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `each'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:857:in `dispatch!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `block in call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `block in invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:633:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/commonlogger.rb:18:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/showexceptions.rb:21:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `block in call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1315:in `synchronize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+ /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+zio-ws429.emaa.local - - [22/Apr/2011:09:21:19 MSD] "POST /run/ HTTP/1.1" 500 116290
+http://10.10.120.202:8001/ -> /run/
+10.10.13.214 - - [22/Apr/2011 09:21:23] "GET /__sinatra__/500.png HTTP/1.1" 200 31056 0.0209
+zio-ws429.emaa.local - - [22/Apr/2011:09:21:23 MSD] "GET /__sinatra__/500.png HTTP/1.1" 200 31056
+http://10.10.120.202:8001/run/ -> /__sinatra__/500.png
+[2011-04-22 09:21:36] ERROR Errno::ECONNRESET: Connection reset by peer
+	/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:56:in `eof?'
+	/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:56:in `run'
+	/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+10.10.13.214 - - [22/Apr/2011 09:21:39] "GET / HTTP/1.1" 200 2386 0.0182
+zio-ws429.emaa.local - - [22/Apr/2011:09:21:39 MSD] "GET / HTTP/1.1" 200 2386
+- -> /
+[2011-04-22 09:21:41] ERROR Errno::ECONNRESET: Connection reset by peer
+	/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:56:in `eof?'
+	/usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:56:in `run'
+	/usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+10.10.14.234 - - [29/Apr/2011 07:55:20] "GET / HTTP/1.1" 200 3379 1.0091
+proxy - - [29/Apr/2011:07:55:19 MSD] "GET / HTTP/1.1" 200 3379
+- -> /
+                                                                               Create report:   0% |                                          | ETA:  --:--:--Create report:   2% |                                          | ETA:  00:00:00Create report:   5% |oo                                        | ETA:  00:00:06Create report:   8% |ooo                                       | ETA:  00:00:06Create report:  11% |oooo                                      | ETA:  00:00:04Create report:  14% |ooooo                                     | ETA:  00:00:04Create report:  17% |ooooooo                                   | ETA:  00:00:03Create report:  20% |oooooooo                                  | ETA:  00:00:03Create report:  23% |ooooooooo                                 | ETA:  00:00:02Create report:  26% |oooooooooo                                | ETA:  00:00:02Create report:  29% |oooooooooooo                              | ETA:  00:00:02Create report:  32% |ooooooooooooo                             | ETA:  00:00:02Create report:  35% |oooooooooooooo                            | ETA:  00:00:02Create report:  38% |ooooooooooooooo                           | ETA:  00:00:02Create report:  41% |ooooooooooooooooo                         | ETA:  00:00:02Create report:  44% |oooooooooooooooooo                        | ETA:  00:00:02Create report:  47% |ooooooooooooooooooo                       | ETA:  00:00:02Create report:  50% |ooooooooooooooooooooo                     | ETA:  00:00:01Create report:  52% |ooooooooooooooooooooo                     | ETA:  00:00:01Create report:  55% |ooooooooooooooooooooooo                   | ETA:  00:00:01Create report:  58% |oooooooooooooooooooooooo                  | ETA:  00:00:01Create report:  61% |ooooooooooooooooooooooooo                 | ETA:  00:00:01Create report:  64% |oooooooooooooooooooooooooo                | ETA:  00:00:01Create report:  67% |oooooooooooooooooooooooooooo              | ETA:  00:00:00Create report:  70% |ooooooooooooooooooooooooooooo             | ETA:  00:00:00Create report:  73% |oooooooooooooooooooooooooooooo            | ETA:  00:00:00Create report:  76% |ooooooooooooooooooooooooooooooo           | ETA:  00:00:00Create report:  79% |ooooooooooooooooooooooooooooooooo         | ETA:  00:00:00Create report:  82% |oooooooooooooooooooooooooooooooooo        | ETA:  00:00:00Create report:  85% |ooooooooooooooooooooooooooooooooooo       | ETA:  00:00:00Create report:  88% |oooooooooooooooooooooooooooooooooooo      | ETA:  00:00:00Create report:  91% |oooooooooooooooooooooooooooooooooooooo    | ETA:  00:00:00Create report:  94% |ooooooooooooooooooooooooooooooooooooooo   | ETA:  00:00:00Create report:  97% |oooooooooooooooooooooooooooooooooooooooo  | ETA:  00:00:00Create report: 100% |oooooooooooooooooooooooooooooooooooooooooo| ETA:  00:00:00Create report: 100% |oooooooooooooooooooooooooooooooooooooooooo| Time: 00:00:03
+NoMethodError - undefined method `[]' for nil:NilClass:
+ /home/inilus/gitrepos/reporter/views/end.haml:16:in `evaluate_source'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:251:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:251:in `evaluate_source'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:186:in `cached_evaluate'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:169:in `evaluate'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:489:in `evaluate'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:118:in `render'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:567:in `render'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:467:in `haml'
+ runner_html.rb:30:in `block in <main>'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `block in compile!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `route_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:722:in `block (2 levels) in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:772:in `block in process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:721:in `block in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `each'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:857:in `dispatch!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `block in call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `block in invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:633:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/commonlogger.rb:18:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/showexceptions.rb:21:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `block in call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1315:in `synchronize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+ /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+proxy - - [29/Apr/2011:07:55:43 MSD] "POST /run/ HTTP/1.1" 500 116648
+http://10.10.120.202:8001/ -> /run/
+10.10.14.234 - - [29/Apr/2011 07:55:47] "GET /__sinatra__/500.png HTTP/1.1" 200 31056 0.0070
+proxy - - [29/Apr/2011:07:55:47 MSD] "GET /__sinatra__/500.png HTTP/1.1" 200 31056
+http://10.10.120.202:8001/run/ -> /__sinatra__/500.png
+10.10.120.202 - - [03/May/2011 11:12:04] "GET /favicon.ico HTTP/1.1" 404 445 0.0103
+USSP-G31M-ES2C - - [03/May/2011:11:12:04 MSD] "GET /favicon.ico HTTP/1.1" 404 445
+- -> /favicon.ico
+Errno::ENOENT - No such file or directory - /gitrepos/reporter/views/index.haml:
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:109:in `binread'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:109:in `block in initialize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:110:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:110:in `initialize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:603:in `new'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:603:in `block in compile_template'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:344:in `fetch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:582:in `compile_template'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:566:in `render'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:467:in `haml'
+ runner_html.rb:22:in `block in <main>'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `block in compile!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `route_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:722:in `block (2 levels) in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:772:in `block in process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:721:in `block in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `each'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:857:in `dispatch!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `block in call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `block in invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:633:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/commonlogger.rb:18:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/showexceptions.rb:21:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `block in call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1315:in `synchronize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+ /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+USSP-G31M-ES2C - - [05/May/2011:09:11:32 MSD] "GET / HTTP/1.1" 500 117128
+- -> /
+10.10.120.202 - - [05/May/2011 09:11:32] "GET /__sinatra__/500.png HTTP/1.1" 200 31056 0.0174
+USSP-G31M-ES2C - - [05/May/2011:09:11:32 MSD] "GET /__sinatra__/500.png HTTP/1.1" 200 31056
+http://10.10.120.202:8001/ -> /__sinatra__/500.png
+10.10.120.202 - - [05/May/2011 09:11:35] "GET /favicon.ico HTTP/1.1" 404 445 0.0050
+USSP-G31M-ES2C - - [05/May/2011:09:11:35 MSD] "GET /favicon.ico HTTP/1.1" 404 445
+- -> /favicon.ico
+Errno::ENOENT - No such file or directory - /gitrepos/reporter/views/index.haml:
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:109:in `binread'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:109:in `block in initialize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:110:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:110:in `initialize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:603:in `new'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:603:in `block in compile_template'
+ /usr/local/lib/ruby/gems/1.9.1/gems/tilt-1.2.2/lib/tilt.rb:344:in `fetch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:582:in `compile_template'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:566:in `render'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:467:in `haml'
+ runner_html.rb:22:in `block in <main>'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1165:in `block in compile!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:738:in `route_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:722:in `block (2 levels) in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:772:in `block in process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:769:in `process_route'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:721:in `block in route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `each'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:720:in `route!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:857:in `dispatch!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `block in call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `instance_eval'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `block in invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `catch'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:822:in `invoke'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:648:in `call!'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:633:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/commonlogger.rb:18:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/showexceptions.rb:21:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `block in call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1315:in `synchronize'
+ /usr/local/lib/ruby/gems/1.9.1/gems/sinatra-1.2.3/lib/sinatra/base.rb:1284:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+ /usr/local/lib/ruby/gems/1.9.1/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+ /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+ /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+USSP-G31M-ES2C - - [05/May/2011:09:11:41 MSD] "GET / HTTP/1.1" 500 117128
+- -> /
+[2011-05-05 09:12:02] INFO  going to shutdown ...
+[2011-05-05 09:12:02] INFO  WEBrick::HTTPServer#start done.
+== Sinatra/1.2.3 has taken the stage on 8001 for development with backup from WEBrick
+{"Project"=>"4267", "from"=>"2011-01-01", "to"=>"2011-12-01", "RUN"=>"Start!", "splat"=>[""]}
+{"Project"=>"4276", "from"=>"2011-01-01", "to"=>"2011-12-01", "RUN"=>"Start!", "splat"=>[""]}
+
+== Sinatra has ended his set (crowd applauds)
