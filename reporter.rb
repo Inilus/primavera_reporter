@@ -76,6 +76,7 @@ class Reporter
 		data = {
 		  :department => department,
 		  :period     => "на #{ months[@project[:period][:start][5, 2].to_i - 1] } месяц #{ @project[:period][:start][0,4] } г.",
+#      :dovalue    => ""
       :heads      => [
         [
           "№ п/п",
@@ -133,7 +134,7 @@ class Reporter
 		result = Array.new
 				
 		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route", :value => department }  ) ).each( :symbolize_keys => true )
-		
+			
 		id_structure_last = Hash[ :id => -1, :i => 0 ]
 		departments.each_with_index do |department, index_dep|
 			tasks = @client.execute( createSqlQuery( :select_tasks_with_structure, { :id_actv_code => department[:actv_code_id], :name_actv_code => "Structure" }  ) ).each( :symbolize_keys => true )
@@ -155,7 +156,7 @@ class Reporter
 					
 					result << [ 
 											"#{ id_structure_last[:i] }.#{ index_task }.",
-											udf_code_to_value( @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "DO" } ) ).each( :symbolize_keys => true ) ),
+											udf_code_to_value( @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Plot" } ) ).each( :symbolize_keys => true ) ),
 											task[:task_name],
 											udf_code_to_value( @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Route full" } ) ).each( :symbolize_keys => true ) ) + " / " + udf_code_to_value( route_num_str = @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Step route" } ) ).each( :symbolize_keys => true ) ),
 											"",
