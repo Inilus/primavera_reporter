@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # 
 # force_encoding: utf-8
 #
