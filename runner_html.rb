@@ -11,7 +11,8 @@ require_relative  'reporter'
 begin
 
 	configure do
-    set :bind => "10.10.120.202", :port => 8001
+#    set :bind => "10.10.120.202", :port => 8001
+      set :bind => "10.0.3.15", :port => 8001
   end
 
 	before do

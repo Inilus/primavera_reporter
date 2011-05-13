@@ -9,7 +9,7 @@
 # Docs for RubyZip: 		http://rubyzip.sourceforge.net/classes/Zip/ZipFile.html
 
 require 'yaml'
-require 'progressbar'
+#require 'progressbar'
 require 'tiny_tds'
 require 'haml'
 require 'zip/zip'
@@ -53,7 +53,7 @@ class Reporter
 	def work_with_department
 		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route" }  ) ).each( :symbolize_keys => true )
 		## ProgressBar
-	  pbar = ProgressBar.new( "Create report", departments.size )	  
+#	  pbar = ProgressBar.new( "Create report", departments.size )	  
 	  dir = nil
 		departments.each do |department|			
 			if department[:PARENT_actv_code_id].nil?				
@@ -61,15 +61,15 @@ class Reporter
 				dir << create_report( department[:short_name] )[1]
 			end
 			## ProgressBar
-			pbar.inc
+#			pbar.inc
 		end
 		## ProgressBar
-		pbar.finish
+#		pbar.finish
 		return dir
 	end
 	
 	def create_report( department="" )
-    haml_engine = Haml::Engine.new( File.read( 'html_report_tmp.haml' ) )		
+    haml_engine = Haml::Engine.new( File.read( 'html_report.haml' ) )		
 		
 		months = Array["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
 		
@@ -277,11 +277,16 @@ WHERE PROJWBS.[proj_id] = #{ @project[:id_project].to_s } AND [proj_node_flag] =
 					## Required: params{  }
 					return "SELECT PROJWBS.[wbs_id], PROJWBS.[proj_id], PROJWBS.[wbs_name], PROJWBS.[wbs_short_name] 
 FROM [dbo].[PROJWBS] AS PROJWBS
+<<<<<<< HEAD
   LEFT JOIN [dbo].[PROJECT] AS PROJECT 
     ON PROJECT.proj_id = PROJWBS.proj_id
 WHERE PROJWBS.[proj_node_flag] = 'Y' 
   AND PROJECT.[orig_proj_id] is null
 	AND PROJECT.[project_flag] = 'Y'
+=======
+LEFT JOIN [dbo].[PROJECT] AS PROJECT ON PROJECT.[proj_id] = PROJWBS.[proj_id]
+WHERE PROJWBS.[proj_node_flag] = 'Y' AND PROJECT.[orig_proj_id] is null AND  PROJECT.[project_flag] = 'Y'
+>>>>>>> e4eb9a4a1c3e3931dad20c4ad759d5f4468063e8
 ORDER BY PROJWBS.[wbs_name] ASC; "
 
 				else
