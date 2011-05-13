@@ -69,7 +69,7 @@ class Reporter
 	end
 	
 	def create_report( department="" )
-    haml_engine = Haml::Engine.new( File.read( 'html_report_tmp.haml' ) )		
+    haml_engine = Haml::Engine.new( File.read( 'html_report.haml' ) )		
 		
 		months = Array["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
 		
@@ -277,7 +277,8 @@ WHERE PROJWBS.[proj_id] = #{ @project[:id_project].to_s } AND [proj_node_flag] =
 					## Required: params{  }
 					return "SELECT PROJWBS.[wbs_id], PROJWBS.[proj_id], PROJWBS.[wbs_name], PROJWBS.[wbs_short_name] 
 FROM [dbo].[PROJWBS] AS PROJWBS
-WHERE PROJWBS.[proj_node_flag] = 'Y' AND PROJWBS.[parent_wbs_id] != null
+LEFT JOIN [dbo].[PROJECT] AS PROJECT ON PROJECT.[proj_id] = PROJWBS.[proj_id]
+WHERE PROJWBS.[proj_node_flag] = 'Y' AND PROJECT.[orig_proj_id] is null AND  PROJECT.[project_flag] = 'Y'
 ORDER BY PROJWBS.[wbs_name] ASC; "
 
 				else

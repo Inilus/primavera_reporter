@@ -2,4 +2,4 @@
   :dataserver: 	Primavera
   :username: 		privuser
   :password: 		privuser
-  :database:    TempPMDB
+  :database:    workPMDB
