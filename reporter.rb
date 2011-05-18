@@ -69,7 +69,7 @@ class Reporter
 	end
 	
 	def create_report( department="" )
-    haml_engine = Haml::Engine.new( File.read( 'html_report.haml' ) )		
+    haml_engine = Haml::Engine.new( File.read( 'html_report_tmp_91.2711.haml' ) )		
 		
 		months = Array["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
 		
@@ -158,7 +158,7 @@ class Reporter
 											"#{ id_structure_last[:i] }.#{ index_task }.",
 											udf_code_to_value( @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Plot" } ) ).each( :symbolize_keys => true ) ),
 											task[:task_name],
-											udf_code_to_value( @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Route full" } ) ).each( :symbolize_keys => true ) ) + " / " + udf_code_to_value( route_num_str = @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Step route" } ) ).each( :symbolize_keys => true ) ),
+											udf_code_to_value( @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Route full" } ) ).each( :symbolize_keys => true ) ) + " // " + udf_code_to_value( route_num_str = @client.execute( createSqlQuery( :select_actvcode, { :id_task => task[:task_id], :name_actvtype => "Step route" } ) ).each( :symbolize_keys => true ) ),
 											"",
 											task[:target_start_date].strftime( "%d.%m.%Y" ),
 											task[:target_end_date].strftime( "%d.%m.%Y" ),
