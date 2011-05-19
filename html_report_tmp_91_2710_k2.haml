@@ -1,0 +1,115 @@
+!!!
+%html
+  %head
+    %title Title	
+  %body
+    %table( CELLSPACING=0 CELLPADDING=3 COLS=16 RULES="NONE" BORDER=0 STYLE="font-family:\"Arial\"; font-size:small" )
+      %tr
+        %td( WIDTH=80 HEIGHT=20 ) 
+        %td( WIDTH=320 ) 
+        %td( WIDTH=372 ) 
+        %td( WIDTH=160 ) 
+        %td( WIDTH=84 ) 
+        %td( WIDTH=100 ) 
+        %td( WIDTH=100 ) 
+        %td( WIDTH=91 ) 
+        %td( WIDTH=100 ) 
+        %td( WIDTH=100 ) 
+        %td( WIDTH=100 ) 
+        %td( WIDTH=63 ) 
+        %td( WIDTH=63 )
+        %td( WIDTH=63 ) 
+        %td( WIDTH=320 ) 
+        %td( WIDTH=63 ) 
+      %tr
+        %td( HEIGHT=20 COLSPAN=14 ALIGN="CENTER" VALIGN="BOTTOM" ) 
+        %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' ) УТВЕРЖДАЮ
+      %tr
+        %td( HEIGHT=29 COLSPAN=2 ALIGN="CENTER" VALIGN="BOTTOM" ) 
+        %td( ALIGN="CENTER" VALIGN="BOTTOM" COLSPAN=12 )
+          %font( SIZE=5 )= "Приложение к плану-отчету цеха № #{ department }"        
+        %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' ) Директор по производству
+      %tr
+        %td( HEIGHT=25 COLSPAN=2 ALIGN="CENTER" VALIGN="BOTTOM" ) 
+        %td( ALIGN="CENTER" VALIGN="BOTTOM" COLSPAN=12 )
+          %font( SIZE=3 )= period
+        %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' ) ______________ В.В. Сержантов      
+      %tr
+        %td( HEIGHT=20 COLSPAN=2 ALIGN="CENTER" VALIGN="BOTTOM" ) 
+        %td( COLSPAN=12 ALIGN="CENTER" VALIGN="BOTTOM" ) Заказ № 22307 ППУ № 2 Комплект № 2  ДО № 91.2710
+        %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' ) &quot;____&quot; ______________ 2011 г.
+      
+      %tr( HEIGHT=80 ) 
+        %td 
+      
+      %tr
+        - heads[0].each_with_index do |head, index|
+          - if index == 0
+            %td( ALIGN="CENTER" VALIGN="CENTER" HEIGHT=60 ROWSPAN=2 STYLE="border-top: 3px solid #000000; border-bottom: 1px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000; font-weight: bold;" )= head
+          -else
+            - if head.class != Array
+              %td( ALIGN="CENTER" VALIGN="CENTER" HEIGHT=60 ROWSPAN=2 STYLE="border-top: 3px solid #000000; border-bottom: 1px solid #000000; border-right: 3px solid #000000; font-weight: bold;" )= head
+            - else
+              = "<td COLSPAN=#{ head[1] } ALIGN=\"CENTER\" VALIGN=\"BOTTOM\" HEIGHT=20 STYLE=\"border-top: 3px solid #000000; border-bottom: 1px solid #000000; border-right: 3px solid #000000; font-weight: bold;\" >#{ head[0] }</td>"
+      %tr
+        - heads[1].each_with_index do |head, index|
+          %td( ALIGN="CENTER" VALIGN="CENTER" HEIGHT=40 STYLE="border-bottom: 1px solid #000000; border-right: 3px solid #000000; font-weight: bold;" )= head
+      %tr
+        - 16.times do |index|
+          - if index == 0
+            %td( ALIGN="CENTER" VALIGN="BOTTOM" HEIGHT=20 STYLE="border-bottom: 3px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" )= index+1
+          - else     
+            %td( ALIGN="CENTER" VALIGN="BOTTOM" STYLE="border-bottom: 3px solid #000000; border-right: 3px solid #000000" )= index+1
+              
+      - tasks.each do |task|
+        %tr
+          - 16.times do |index|
+            - if index == 0
+              %td( ALIGN="CENTER" VALIGN="BOTTOM" HEIGHT=20 STYLE="border-bottom: 1px solid #000000; border-left: 3px solid #000000; border-right: 3px solid #000000" )= task[index]
+            - else
+              - if task[1].empty?
+                - if index == 2
+                  %td( COLSPAN=15 ALIGN="LEFT" VALIGN="BOTTOM" STYLE="border-bottom: 1px solid #000000; border-right: 3px solid #000000" )= task[index]                
+              - else
+                - if index == 2
+                  %td( ALIGN="LEFT" VALIGN="BOTTOM" STYLE="border-bottom: 1px solid #000000; border-right: 3px solid #000000" )= task[index]
+                - else
+                  %td( ALIGN="CENTER" VALIGN="BOTTOM" STYLE="border-bottom: 1px solid #000000; border-right: 3px solid #000000" )= task[index]            
+            
+      %tr( HEIGHT=80 ) 
+        %td
+
+      %tr
+        %td( HEIGHT=40 )
+        %td( COLSPAN=2 ALIGN="LEFT" VALIGN="BOTTOM" ) 
+          %b План:
+        %td( COLSPAN=5 )
+        %td( COLSPAN=4 ALIGN='LEFT' VALIGN='BOTTOM' ) 
+          %b Отчет:
+        %td( COLSPAN=4 )
+      %tr
+        %td( HEIGHT=60 )
+	%td( COLSPAN=2 ALIGN='LEFT' VALIGN='BOTTOM' ) Начальник ОСП
+	%td( COLSPAN=3 ALIGN='LEFT' VALIGN='BOTTOM' ) ______________/ Д.С. Смирнов /
+	%td( COLSPAN=2 )
+        %td( COLSPAN=4 ALIGN='LEFT' VALIGN='BOTTOM' ) Начальник цеха №______
+        %td( COLSPAN=2 )
+        %td( COLSPAN=2 ALIGN='LEFT' VALIGN='BOTTOM' ) ______________/ ____________ /
+      %tr
+        %td( HEIGHT=60 )
+        %td( COLSPAN=2 ALIGN="LEFT" VALIGN="BOTTOM" ) Начальник производства АЭС
+        %td( COLSPAN=3 ALIGN='LEFT' VALIGN='BOTTOM' ) ______________/ Г.Р. Самарчев /
+        %td( COLSPAN=2 ) 
+        %td( COLSPAN=4 ALIGN='LEFT' VALIGN='BOTTOM' ) Начальник производства АЭС
+        %td( COLSPAN=2 )
+        %td( COLSPAN=2 ALIGN='LEFT' VALIGN='BOTTOM' ) ______________/ Г.Р. Самарчев /
+      %tr        
+        %td( HEIGHT=60 )
+        %td( COLSPAN=2 ALIGN="LEFT" VALIGN="BOTTOM" ) Начальник ООПП
+        %td( COLSPAN=3 ALIGN='LEFT' VALIGN='BOTTOM' ) ______________/ В.Н. Кувылин  /
+        %td( COLSPAN=2 )
+        %td( COLSPAN=4 ALIGN='LEFT' VALIGN='BOTTOM' ) Начальник ООПП
+        %td( COLSPAN=2 )
+        %td( COLSPAN=2 ALIGN='LEFT' VALIGN='BOTTOM' ) ______________/ В.Н. Кувылин  /
+      %tr
+      
