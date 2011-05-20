@@ -1,5 +1,8 @@
 :db:
-  :dataserver: 	Primavera
-  :username: 		privuser
-  :password: 		privuser
-  :database:    workPMDB
+  :dataserver:  Primavera
+  :username:  privuser
+  :password:  privuser
+  :database:  workPMDB
+:report:
+  :file:  "91_2710_k2.haml"
+
