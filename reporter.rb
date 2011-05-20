@@ -69,7 +69,7 @@ class Reporter
 	end
 	
 	def create_report( department="" )
-          haml_engine = Haml::Engine.new( File.read( 'html_report.haml' ) )
+          haml_engine = Haml::Engine.new( File.read( 'html_report_tmp_91_2710_k2.haml' ) )
 		
 		months = Array["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
 		
