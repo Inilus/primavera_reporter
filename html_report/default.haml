@@ -36,8 +36,8 @@
         %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' ) ______________ В.В. Сержантов
       %tr
         %td( HEIGHT=20 COLSPAN=2 ALIGN="CENTER" VALIGN="BOTTOM" )
-        %td( COLSPAN=12 ALIGN="CENTER" VALIGN="BOTTOM" ) Заказ №______________________________ ППУ №_________ Комплект №_________  ДО №_____________________________
-        %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' ) &quot;____&quot; ______________ 2011 г.
+        %td( COLSPAN=12 ALIGN="CENTER" VALIGN="BOTTOM" )= "Заказ №#{ order_num }  ППУ №#{ ppu_num }  Комплект №#{ set_num }  ДО №#{ do_num }"
+        %td( COLSPAN=2 ALIGN='CENTER' VALIGN='BOTTOM' )= "&quot;____&quot; ______________ #{ Time.new.year } г."
 
       %tr( HEIGHT=120 )
         %td

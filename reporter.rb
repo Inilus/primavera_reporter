@@ -81,6 +81,11 @@ class Reporter
 			:department => department,
 			:period		 => "на #{ months[@project[:period][:start][5, 2].to_i - 1] } месяц #{ @project[:period][:start][0,4] } г.",
 #			:dovalue		=> ""
+			:order_num	=> get_actv_code_project_by_type_name( "Номер бланка заказа" ),
+			:ppu_num	=> get_actv_code_project_by_type_name( "ППУ" ),
+			:set_num	=> get_actv_code_project_by_type_name( "Комплект" ),
+			:do_num	=> get_actv_code_project_by_type_name( "ДО" ),
+
 			:heads			=> [
 				[
 					"№ п/п",
@@ -182,6 +187,16 @@ class Reporter
 			end
 		end
 
+		def get_actv_code_project_by_type_name( type_name="" )
+			actv_code_project = @client.execute( createSqlQuery( :select_actv_code_project, { :type_name => type_name } ) ).each( :symbolize_keys => true )
+			unless actv_code_project.nil?
+				actv_code_project = actv_code_project[0][:proj_catg_name]
+			end
+			actv_code_project = "NONE" if actv_code_project.nil?
+
+			return actv_code_project
+		end
+
 		def createSqlQuery( name_query, params={} )
 			case name_query
 
@@ -279,6 +294,18 @@ LEFT JOIN [dbo].[PROJWBS] AS PROJWBS
 WHERE PROJECT.[orig_proj_id] IS NULL
 		AND	PROJECT.[project_flag] = 'Y'
 ORDER BY PROJWBS.[wbs_name] ASC; "
+
+				## def create_report
+				when :select_actv_code_project
+					## Required: params{ :type_name }
+					return "SELECT TOP 1 PCATVAL.[proj_catg_short_name], PCATVAL.[proj_catg_name]
+FROM [dbo].[PCATTYPE] AS PCATTYPE
+INNER JOIN [dbo].[PCATVAL] AS PCATVAL
+	ON PCATVAL.proj_catg_type_id = PCATTYPE.proj_catg_type_id
+INNER JOIN [dbo].[PROJPCAT] AS PROJPCAT
+	ON PROJPCAT.proj_catg_id = PCATVAL.proj_catg_id
+		AND PROJPCAT.proj_id = #{ @project[:id_project].to_s }
+WHERE PCATTYPE.proj_catg_type = '#{ params[:type_name] }'"
 
 				else
 					return nil
