@@ -1,16 +1,17 @@
 !!!
 %html
   %head
-    %title Title	
-  %body   
-    %h1 Generating report completed!
-    %a{ :href => url( "/" ) } Go to home
+    %title Генератор отчетов для Primavera P6
+  %body
+    %h1 Формирование отчета завершено!
+    %a{ :href => url( "/" ) } Вернуться назад
     %br
-    %h2 You can see:
+    %h2 Вы можете посмотреть:
     - if paths.size > 1
       - paths[1..-1].each do |path|
         - unless path.nil?
-          %a{ :href => url( "/#{ paths[0] }/#{ path }.html" ) }= "#{ path }.html"
+          %a{ :href => url( "/#{ path }" ) }= "#{ path[7..-1] }"
           %br
-      Download all reports: 
-      %a{ :href => url( "/#{ paths[0] }/#{ paths[1][0, 21] }.zip" ) }= "#{ paths[1][0, 21] }.zip"
+      Скачать все отчеты одним архивом:
+      %a{ :href => url( "/#{ paths[0] }" ) }= "#{ paths[0][7..-1] }"
+

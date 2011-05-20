@@ -1,18 +1,12 @@
 # force_encoding: utf-8
 #
 # File: creater.rb
-#
-# Docs for Yaml: 				http://santoro.tk/mirror/ruby-core/classes/YAML.html
-# Docs for ProgressBar: http://0xcc.net/ruby-progressbar/index.html.en
-# Docs for TinyTds: 		https://github.com/rails-sqlserver/tiny_tds#readme
-# Docs for HAML:				http://haml-lang.com/docs/yardoc/Haml.html
-# Docs for RubyZip: 		http://rubyzip.sourceforge.net/classes/Zip/ZipFile.html
 
-require 'yaml'
-#require 'progressbar'
-require 'tiny_tds'
-require 'haml'
-require 'zip/zip'
+require 'yaml'					# http://santoro.tk/mirror/ruby-core/classes/YAML.html
+#require 'progressbar'		# http://0xcc.net/ruby-progressbar/index.html.en
+require 'tiny_tds'			# https://github.com/rails-sqlserver	iny_tds#readme
+require 'haml'					# http://haml-lang.com/docs/yardoc/Haml.html
+require 'zip/zip'				# http://rubyzip.sourceforge.net/classes/Zip/ZipFile.html
 
 class Reporter
 
@@ -49,96 +43,96 @@ class Reporter
 		@project[:id_wbs] = project[:wbs_id]
 		@project[:name_wbs] = project[:wbs_name]
 
+		# Check directory for report
+		@report_dir = "public/output/#{ @project[:name] }"
+		# Clear or create directory for project
+		if File::directory?( @report_dir )
+			Dir.foreach( @report_dir ) do |filename|
+				filename = "#{ @report_dir }/#{ filename }"
+				File.delete( filename ) unless File::directory?( filename )
+			end
+		else
+			Dir.mkdir( @report_dir )
+		end
 	end
 
 	def work_with_department
-		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route" }  ) ).each( :symbolize_keys => true )
+		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route" }	) ).each( :symbolize_keys => true )
 		## ProgressBar
-#	  pbar = ProgressBar.new( "Create report", departments.size )
-	  dir = nil
+#		pbar = ProgressBar.new( "Create report", departments.size )
 		departments.each do |department|
 			if department[:PARENT_actv_code_id].nil?
-				dir = create_report( department[:short_name] ) if dir.nil?
-				dir << create_report( department[:short_name] )[1]
+				create_report( department[:short_name] )
 			end
 			## ProgressBar
 #			pbar.inc
 		end
 		## ProgressBar
 #		pbar.finish
-		return dir
+		return @report_dir
 	end
 
 	def create_report( department="" )
-          haml_engine = Haml::Engine.new( File.read( @file_template ) )
+					haml_engine = Haml::Engine.new( File.read( @file_template ) )
 
 		months = Array["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
 
 		data = {
-		  :department => department,
-		  :period     => "на #{ months[@project[:period][:start][5, 2].to_i - 1] } месяц #{ @project[:period][:start][0,4] } г.",
-#      :dovalue    => ""
-      :heads      => [
-        [
-          "№ п/п",
-          "№ чертежа",
-          "Наименование",
-          "Маршрут/ Номер точки маршрута",
-          "№ опер. по ТП",
-          [ "Даты", 4 ],
-          [ "Трудоемкость, н/ч", 2 ],
-          [ "Количество, шт.", 3 ],
-          "Подтверждающий документ",
-          "Примеч."
-        ],
-        [ "План. старт",
-          "План. финиш",
-          "Факт. старт",
-          "Факт. финиш",
+			:department => department,
+			:period		 => "на #{ months[@project[:period][:start][5, 2].to_i - 1] } месяц #{ @project[:period][:start][0,4] } г.",
+#			:dovalue		=> ""
+			:heads			=> [
+				[
+					"№ п/п",
+					"№ чертежа",
+					"Наименование",
+					"Маршрут/ Номер точки маршрута",
+					"№ опер. по ТП",
+					[ "Даты", 4 ],
+					[ "Трудоемкость, н/ч", 2 ],
+					[ "Количество, шт.", 3 ],
+					"Подтверждающий документ",
+					"Примеч."
+				],
+				[ "План. старт",
+					"План. финиш",
+					"Факт. старт",
+					"Факт. финиш",
 
-          "План. отработ.",
-          "Факт. отработ.",
+					"План. отработ.",
+					"Факт. отработ.",
 
-          "Всего",
-          "План",
-          "Факт"
-        ]
-      ]
-    }
+					"Всего",
+					"План",
+					"Факт"
+				]
+			]
+		}
 
-    data[:tasks] = prepare_data( department )
+		data[:tasks] = prepare_data( department )
 
-    ## Save file
-    dir = "public/output/#{ @project[:name] }"
-    file = ""
-    unless data[:tasks].empty?
-    	if not File::directory?( dir )
-    		Dir.mkdir( dir )
-    	end
-    	file = "#{ @project[:period][:start] }-#{ @project[:period][:finish] } #{ department }"
-    	html = haml_engine.render(nil, data)
-		  File.open( "#{ dir }/#{ file }.html", "w" ) do |file_report|
+		## Save file
+		unless data[:tasks].empty?
+			file = "#{ @project[:name] } #{ @project[:period][:start] }-#{ @project[:period][:finish] } #{ department }"
+			html = haml_engine.render(nil, data)
+			File.open( "#{ @report_dir }/#{ file }.html", "w" ) do |file_report|
 				file_report.puts html
 				file_report.close
 			end
-			Zip::ZipFile.open("#{ dir }/#{ file[0, 21] }.zip", Zip::ZipFile::CREATE) { |zipfile|
+			Zip::ZipFile.open("#{ @report_dir }/#{ file[0, ( 22 + @project[:name].size )] }.zip", Zip::ZipFile::CREATE) { |zipfile|
 				zipfile.get_output_stream("#{ file }.html") { |f| f.puts html }
 			}
-
 		end
-		result = Array[ dir[7..-1] ]
-		result << file unless file.empty?
-		return result
 	end
 
 	def prepare_data( department="" )
 		result = Array.new
 
-		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route", :value => department }  ) ).each( :symbolize_keys => true )
+		departments = @client.execute( createSqlQuery( :select_actvtype, { :name => "Route", :value => department }	) ).each( :symbolize_keys => true )
 
 		id_structure_last = Hash[ :id => -1, :i => 0 ]
 		departments.each_with_index do |department, index_dep|
-			tasks = @client.execute( createSqlQuery( :select_tasks_with_structure, { :id_actv_code => department[:actv_code_id], :name_actv_code => "Structure" }  ) ).each( :symbolize_keys => true )
+			tasks = @client.execute( createSqlQuery( :select_tasks_with_structure, { :id_actv_code => department[:actv_code_id], :name_actv_code => "Structure" }	) ).each( :symbolize_keys => true )
 			if not tasks.empty?
 				index_task = 0
 				tasks.each do |task|
@@ -168,7 +162,7 @@ class Reporter
 											udf_code_to_value( @client.execute( createSqlQuery( :select_udf_code, { :id_task => task[:task_id], :name => "Трудоёмкость по ТП" } ) ).each( :symbolize_keys => true ), :number ),
 											"",
 											udf_code_to_value( @client.execute( createSqlQuery( :select_udf_code, { :id_task => task[:task_id], :name => "Количество" } ) ).each( :symbolize_keys => true ), :number )
-									  ]
+										]
 				end
 
 			end
@@ -191,9 +185,9 @@ class Reporter
 		def createSqlQuery( name_query, params={} )
 			case name_query
 
-	#	  	when
-	#	  		## Required: params{  }
-	#	  		return
+	#			when
+	#				## Required: params{	}
+	#				return
 
 				## def prepare_data
 				when :select_actvtype
@@ -264,26 +258,26 @@ WHERE UDFTYPE.[table_name] = 'TASK' AND UDFTYPE.[udf_type_label] LIKE '#{ params
 
 				## def load_data
 				when :select_project
-					## Required: params{  }
+					## Required: params{	}
 					return "SELECT TOP 1 PROJWBS.[wbs_id], PROJWBS.[proj_id], PROJWBS.[wbs_name]
 FROM [dbo].[PROJWBS] AS PROJWBS
 WHERE PROJWBS.[wbs_short_name] = '#{ @project[:name].to_s }' AND [proj_node_flag] = 'Y'; "
 					when :select_project_by_id
-					## Required: params{  }
+					## Required: params{	}
 					return "SELECT TOP 1 PROJWBS.[wbs_id], PROJWBS.[wbs_name], PROJWBS.[wbs_short_name]
 FROM [dbo].[PROJWBS] AS PROJWBS
 WHERE PROJWBS.[proj_id] = #{ @project[:id_project].to_s } AND [proj_node_flag] = 'Y'; "
 
 				## def get_all_projects
 				when :select_projects
-					## Required: params{  }
+					## Required: params{	}
 					return "SELECT PROJWBS.[wbs_id], PROJWBS.[proj_id], PROJWBS.[wbs_name], PROJWBS.[wbs_short_name]
-FROM [dbo].[PROJWBS] AS PROJWBS
-LEFT JOIN [dbo].[PROJECT] AS PROJECT
-  ON PROJECT.[proj_id] = PROJWBS.[proj_id]
-    AND PROJECT.[orig_proj_id] is null
-    AND  PROJECT.[project_flag] = 'Y'
-WHERE PROJWBS.[proj_node_flag] = 'Y'
+FROM [dbo].[PROJECT] AS PROJECT
+LEFT JOIN [dbo].[PROJWBS] AS PROJWBS
+	ON PROJWBS.[proj_id] = PROJECT.[proj_id]
+		AND PROJWBS.[proj_node_flag] = 'Y'
+WHERE PROJECT.[orig_proj_id] IS NULL
+		AND	PROJECT.[project_flag] = 'Y'
 ORDER BY PROJWBS.[wbs_name] ASC; "
 
 				else

@@ -29,13 +29,18 @@ begin
 	post '/run/*' do
 		puts params
 		@reporter.load_data( params["Project"].to_i, Hash[ :start => params["from"], :finish => params["to"] ] )
-		paths = @reporter.work_with_department
+		path = @reporter.work_with_department
 
-		paths_tmp = Array.new
-		paths.each do |p|
-			paths_tmp << p unless p.nil?
+		paths = Array.new
+		# On [0] save path to zip file
+		paths[0] = nil
+		Dir.foreach( path ) do |filename|
+			unless filename.include? (".zip")
+				paths << "#{ path[7..-1] }/#{ filename }" unless File::directory?( filename )
+			else
+				paths[0] = "#{ path[7..-1] }/#{ filename }"
+			end
 		end
-		paths = paths_tmp
 
 		haml :end, :locals => { :paths => paths }
 	end

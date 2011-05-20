@@ -4,8 +4,8 @@
   :password:  privuser
   :database:  workPMDB
 :bind:
-  :ip:  "10.0.3.15"
+  :ip:  "127.0.0.1"
   :port:  8001
 :report:
-  :file:  "91_2710_k2.haml"
+  :file:  "default.haml"
 

@@ -2,21 +2,21 @@
 %html
   %head
     %meta{:'http-equiv' => 'Content-Type', :content => 'text/html; charset=UTF-8'}
-    %title Title
+    %title Генератор отчетов для Primavera P6
   %body
     %h1 Reporter
     %form{ :action => "/run/", :method => :post }
-      %p Please, select name project
+      %p Выберите проект
       %select{ :name => "Project" }
         - projects.each do |project|
           %option{ :value => "#{ project[:proj_id] }" }= "#{ project[:wbs_short_name] } | #{ project[:wbs_name] }"
       %br
-      %p= "Please, enter date (In format \"yyyy-mm-dd\". For example, \"2011-04-30\")"
-      From:
+      %p= "Введите даты для отчета (в формате \"гггг-мм-дд\". Например, \"2011-04-30\")"
+      С:
       %input{ :type => :text, :name => "from", :size => 10, :value => "2011-01-01" }
-        to:
+        по:
       %input{ :type => :text, :name => "to", :size => 10, :value => "2011-01-31" }
       %br
       %br
-      %input{ :type => :submit, :name => "RUN", :value => "Start!" }
+      %input{ :type => :submit, :name => "RUN", :value => "Поехали!" }
 
