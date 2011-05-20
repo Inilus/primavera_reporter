@@ -16,8 +16,8 @@ require 'zip/zip'
 
 class Reporter
 
-	def initialize
-		config = YAML.load_file( "config.yml" )
+	def initialize ( config=nil )
+		config ||= YAML.load_file( "config.yml" )
 		@client = TinyTds::Client.new( :username => config[:db][:username], :password => config[:db][:password], :dataserver => config[:db][:dataserver], :database => config[:db][:database] )
 		@file_template = "html_report/#{ config[:report][:file] }"
 	end
